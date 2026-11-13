@@ -1,0 +1,1 @@
+<?php require_once '../config.php';require_admin();if($_SERVER['REQUEST_METHOD']==='POST'){$id=filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);if($id){$s=$pdo->prepare('DELETE FROM Users WHERE admin_id=?');$s->execute([$id]);$_SESSION['flash']=$s->rowCount()?'Đã xóa người dùng.':'Không tìm thấy người dùng.';}}header('Location: index.php');exit; ?>
